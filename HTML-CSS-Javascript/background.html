@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background</title>
+</head>
+
+<body>
+    <!-- Three buttons RGB -->
+    <button id="red">R</button>
+    <button id="green">G</button>
+    <button id="blue">B</button>
+    <button id="default">Default</button>
+
+    <script>
+        // Select the body element to acess it later easily
+        let body = document.querySelector('body');
+
+        // Change the colors
+        document.querySelector('#red').addEventListener('click', function () {
+            body.style.backgroundColor = 'red';
+        });
+        document.querySelector('#green').addEventListener('click', function () {
+            body.style.backgroundColor = 'green';
+        });
+        document.querySelector('#blue').addEventListener('click', function () {
+            body.style.backgroundColor = 'blue';
+        });
+        document.querySelector('#default').addEventListener('click', function () {
+            body.style.backgroundColor = 'white';
+        });
+
+    </script>
+</body>
+
+</html>

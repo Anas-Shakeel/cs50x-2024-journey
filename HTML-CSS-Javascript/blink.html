@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Toggle visibility of greeting (body tag)
+        function blink() {
+            let body = document.querySelector('body');
+            if (body.style.visibility == 'hidden') {
+                body.style.visibility = 'visible';
+            } else {
+                body.style.visibility = 'hidden';
+            }
+        }
+
+        window.setInterval(blink, 500);
+
+    </script>
+
+    <title>Blink</title>
+</head>
+
+<body>
+    Hello, World!
+</body>
+
+</html>
