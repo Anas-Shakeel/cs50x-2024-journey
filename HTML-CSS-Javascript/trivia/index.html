@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+            rel="stylesheet" />
+        <link href="styles.css" rel="stylesheet" />
+        <title>Trivia!</title>
+        <script>
+            // Wait for the whole document to get loaded
+            document.addEventListener("DOMContentLoaded", function () {
+                // ** Get MCQ answer **
+                // Get the mcq_feedback paragrah tag
+                const mcq_p = document.querySelector("#feedback1");
+
+                // Check for MCQ Correct button press
+                const correct_button = document.querySelector(".correct");
+                correct_button.addEventListener("click", () => {
+                    // Change the background of button to green
+                    correct_button.style.backgroundColor = "green";
+                    // Set "Correct!" to feedback paragraph
+                    mcq_p.innerHTML = "Correct!";
+                });
+
+                // Check for MCQ Incorrect Buttons press
+                const incorrects = document.querySelectorAll(".incorrect");
+                // Iterate incorrects and add onclick event to a function
+                // Function will change bg and paragraph
+                incorrects.forEach((button) => {
+                    button.addEventListener("click", () => {
+                        button.style.backgroundColor = "red";
+                        mcq_p.innerHTML = "Incorrect";
+                    });
+                });
+
+                // Check answers for Free-Response Questions (FRQs)
+                const frq_button = document.querySelector("#check");
+                frq_button.addEventListener("click", () => {
+                    // Get the answer
+                    let answer = document.querySelector("#answer").value;
+
+                    // Check if it's correct
+                    if (answer === "Switzerland") {
+                        frq_button.style.backgroundColor = "green";
+                        document.querySelector("#feedback2").innerHTML =
+                            "Correct!";
+                    } else {
+                        frq_button.style.backgroundColor = "red";
+                        document.querySelector("#feedback2").innerHTML =
+                            "Incorrect";
+                    }
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice</h2>
+                <hr />
+                <!-- TODO: Add multiple choice question here -->
+                <!-- Use an h3 heading for the question text -->
+                <!-- Use one button for each possible answer choice -->
+                <!-- With javascript, Add logic so that:
+                        - When an incorrect answer choice is clicked, the button should turn RED
+                        and text text should appear beneath the question that says "Incorrect"
+                        - When the correct answer choice is clicked, the button should appear GREEN,
+                        and text beneath the question says "Correct!"
+                -->
+                <h3>'This is a question.', is this a question?</h3>
+                <button class="incorrect">Yes</button>
+                <button class="correct">No</button>
+                <button class="incorrect">May be</button>
+                <!-- Feedback to user about their answer -->
+                <p id="feedback1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr />
+                <!-- TODO: Add free response question here -->
+                <!-- Use an h3 heading for the question text -->
+                <!-- Use one input for the response and a button to confirm answer -->
+                <!-- With Javascript:
+                        - When an incorrect answer is provided, textfield should turn red 
+                        and text should appear beneath the question that says "Incorrect"
+                        - When a correct answer is provided, textfield should turn green 
+                        and text should appear beneath the question that says "Correct!"
+                -->
+                <h3>
+                    In which country is it illegal to own only one guinea pig,
+                    as a lone guinea pig might get lonely?
+                </h3>
+                <input type="text" id="answer" />
+                <button id="check">Check Answer</button>
+
+                <!-- Feedback of answer -->
+                <p id="feedback2"></p>
+            </div>
+        </div>
+    </body>
+</html>
+
+<!-- 
+Javascript techniques:
+1. document.querySelector
+2. addEventListener
+ -->
