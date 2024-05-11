@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Quoted
+{% endblock %}
+
+{% block heading %}
+    Quote
+{% endblock %}
+
+{% block main %}
+
+    <p>A Share of ({{ lookup_result['symbol'] }}) costs {{ lookup_result['price'] | usd }}</p>
+
+{% endblock %}
